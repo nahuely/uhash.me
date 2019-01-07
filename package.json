@@ -1,0 +1,32 @@
+{
+  "name": "uhash.me",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "helmet": "^3.15.0",
+    "jsonwebtoken": "^8.4.0",
+    "mocha": "^5.2.0",
+    "mongoose": "^5.4.1",
+    "node-fetch": "^2.3.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "shortid": "^2.2.14",
+    "valid-url": "^1.0.9"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.9"
+  }
+}
