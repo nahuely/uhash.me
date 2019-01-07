@@ -1,0 +1,43 @@
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: ivory;
+  &__header {
+    height: 60px;
+    z-index: 1;
+  }
+
+  &__main {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__footer {
+    height: 30px;
+    z-index: 1;
+  }
+}
+
+// global styles helpers
+
+.section {
+  height: 100%;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.full {
+  width: 100%;
+}

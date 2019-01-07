@@ -1,0 +1,17 @@
+.input {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  &__label {
+    width: inherit;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+  }
+
+  &__input {
+    width: inherit;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+  }
+}
