@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import Input from "../../components/input";
 import Button from "../../components/button";
+import { loginRequest } from "../../actions/login";
 
-class Shortener extends Component {
+export class Shortener extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,6 +13,10 @@ class Shortener extends Component {
       link: ""
     };
   }
+
+  handleLogin = () => {
+    this.props.loginRequest("nahuelfamendola@gmail", "caca");
+  };
 
   handleShortening = () => {
     const urlProps = {
@@ -44,9 +50,13 @@ class Shortener extends Component {
       <div>
         <Input value={link} onChange={this.handleInputUpdate} />
         <Button onClick={this.handleShortening}>make it short</Button>
+        <Button onClick={this.handleLogin}>login</Button>
       </div>
     );
   }
 }
 
-export default Shortener;
+export default connect(
+  null,
+  { loginRequest }
+)(Shortener);

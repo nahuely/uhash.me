@@ -8,13 +8,14 @@
     "@atlaskit/form": "^5.1.0",
     "@atlaskit/modal-dialog": "^7.1.2",
     "@atlaskit/textfield": "^0.1.5",
+    "axios": "^0.18.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.2",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-saga": "^0.16.2"
   },
   "scripts": {
     "start": "react-scripts start",
