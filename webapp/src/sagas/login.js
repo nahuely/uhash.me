@@ -1,9 +1,10 @@
-import { takeEvery, call, put, fork } from "redux-saga/effects";
+import { take, call, put, fork } from "redux-saga/effects";
 import * as types from "../actions/actionTypes";
 import * as actions from "../actions/login";
 import * as api from "../api/login";
 
 function* login(action) {
+  debugger;
   try {
     const result = yield call(
       api.login,
@@ -26,7 +27,10 @@ function* login(action) {
 }
 
 function* watchLoginRequest() {
-  yield takeEvery(types.LOGIN_REQUEST, login);
+  while (true) {
+    const action = yield take(types.LOGIN_REQUEST);
+    yield call(login, action);
+  }
 }
 
 const loginSagas = [fork(watchLoginRequest)];
