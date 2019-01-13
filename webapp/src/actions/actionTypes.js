@@ -2,5 +2,9 @@ export const LOGIN_REQUEST = "LOGIN/REQUEST";
 export const LOGIN_SUCCESS = "LOGIN/SUCCESS";
 export const LOGIN_ERROR = "LOGIN/ERROR";
 
+export const SHORTENER_REQUEST = "SHORTENER/REQUEST";
+export const SHORTENER_SUCCESS = "SHORTENER/SUCCESS";
+export const SHORTENER_ERROR = "SHORTENER/ERROR";
+
 export const LOGOUT = "LOGOUT";
 export const SIGNIN = "SIGNIN";

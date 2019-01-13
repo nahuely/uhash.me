@@ -4,7 +4,6 @@ import * as actions from "../actions/login";
 import * as api from "../api/login";
 
 function* login(action) {
-  debugger;
   try {
     const result = yield call(
       api.login,

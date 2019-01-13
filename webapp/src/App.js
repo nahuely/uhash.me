@@ -4,7 +4,6 @@ import ErrorBoundary from "./components/error-boundary";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import Shortener from "./views/shortener/Shortener";
-import ShortenerResolution from "./views/shortenerResolution/ShortenerResolution";
 import "./app.scss";
 
 const App = () => {
@@ -18,7 +17,6 @@ const App = () => {
           <div className="app__main">
             <Switch>
               <Route exact path="/" component={Shortener} />
-              <Route path="/:urlShortener" component={ShortenerResolution} />
               <Route path="/stats" render={() => <div>/stats</div>} />
               <Route path="/about-us" component={() => <div>/about-us</div>} />
               <Route render={() => <div>/not found</div>} />
