@@ -1,32 +1,36 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import PrivateRoute from "./hocs/private-route/PrivateRoute";
 import ErrorBoundary from "./components/error-boundary";
 import Header from "./components/header";
 import Footer from "./components/footer";
-import Shortener from "./views/shortener/Shortener";
+import routes from "./config/routes";
 import "./app.scss";
 
 const App = () => {
   return (
     <ErrorBoundary>
-      <BrowserRouter>
+      <Router>
         <div className="app">
           <div className="app__header">
             <Header />
           </div>
           <div className="app__main">
-            <Switch>
-              <Route exact path="/" component={Shortener} />
-              <Route path="/stats" render={() => <div>/stats</div>} />
-              <Route path="/about-us" component={() => <div>/about-us</div>} />
-              <Route render={() => <div>/not found</div>} />
-            </Switch>
+            {Object.entries(routes.public).map(([routeName, route]) => (
+              <Route
+                exact={route.exact}
+                key={routeName}
+                path={route.path}
+                component={route.component}
+              />
+            ))}
+            <PrivateRoute routes={routes.private} notAuthenticated="/login" />
           </div>
           <div className="app__footer">
             <Footer />
           </div>
         </div>
-      </BrowserRouter>
+      </Router>
     </ErrorBoundary>
   );
 };
