@@ -11,6 +11,14 @@ router.post("/urls", URLController.create);
 
 router.get("/urls/:urlId", URLController.index);
 
+router.get(
+  "/checkAuth",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    res.sendStatus(204);
+  }
+);
+
 router.post(
   "/signup",
   passport.authenticate("signup", { session: false }),
