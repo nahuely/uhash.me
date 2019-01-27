@@ -25,7 +25,7 @@ const App = () => {
                 component={route.component}
               />
             ))}
-            <PrivateRoute routes={routes.private} notAuthenticated="/login" />
+            {/* <PrivateRoute routes={routes.private} notAuthenticated="/login" /> */}
           </div>
           <div className="app__footer">
             <Footer />
