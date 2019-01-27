@@ -8,6 +8,7 @@ import "./normalize.scss";
 
 axios.defaults.baseURL = "http://localhost:3333/";
 axios.defaults.headers.post["Content-Type"] = "application/json";
+// axios.defaults.headers.common = { Authorization: `bearer ${token}` };
 
 ReactDOM.render(
   <Provider store={store}>

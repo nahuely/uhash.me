@@ -23,22 +23,22 @@ const Header = () => {
           </li>
           <li className="menu__item">
             <NavLink
-              to="/stats"
+              to="/login"
               activeClassName="menu__link--selected"
               className="menu__link"
               exact
             >
-              Stats
+              Login
             </NavLink>
           </li>
           <li className="menu__item">
             <NavLink
-              to="/about-us"
+              to="/sign-up"
               activeClassName="menu__link--selected"
               className="menu__link"
               exact
             >
-              How we are
+              Sign up
             </NavLink>
           </li>
         </ul>

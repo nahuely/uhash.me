@@ -1,4 +1,9 @@
-import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_ERROR } from "./actionTypes";
+import {
+  LOGIN_REQUEST,
+  LOGIN_SUCCESS,
+  LOGIN_ERROR,
+  CHECK_AUTH
+} from "./actionTypes";
 
 export const loginRequest = (email, password) => ({
   type: LOGIN_REQUEST,
@@ -20,4 +25,8 @@ export const loginError = error => ({
   payload: {
     error
   }
+});
+
+export const checkAuth = () => ({
+  type: CHECK_AUTH
 });

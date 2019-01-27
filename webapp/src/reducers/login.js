@@ -33,3 +33,5 @@ export default (state = INITIAL_STATE, action) => {
       return state;
   }
 };
+
+export const authSelector = state => state.auth;

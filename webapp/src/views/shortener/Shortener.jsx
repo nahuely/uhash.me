@@ -36,10 +36,7 @@ export class Shortener extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  console.log(state);
-  return {};
-};
+const mapStateToProps = state => ({});
 
 export default connect(
   mapStateToProps,

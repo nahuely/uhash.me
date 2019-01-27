@@ -8,3 +8,5 @@ export const SHORTENER_ERROR = "SHORTENER/ERROR";
 
 export const LOGOUT = "LOGOUT";
 export const SIGNIN = "SIGNIN";
+
+export const CHECK_AUTH = "CHECK_AUTH";

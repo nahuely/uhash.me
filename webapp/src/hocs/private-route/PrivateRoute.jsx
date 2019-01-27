@@ -1,5 +1,8 @@
 import React, { Component, Fragment } from "react";
 import { Redirect, Route } from "react-router-dom";
+import { connect } from "react-redux";
+
+import { checkAuth } from "../../actions/login";
 
 const generateRoutes = (route, path) => {
   if (!route.routes) {
@@ -18,13 +21,17 @@ const generateRoutes = (route, path) => {
   );
 };
 
-export default class PrivateRoute extends Component {
+export class PrivateRoute extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isLoading: true,
       isAuthenticated: true
     };
+  }
+
+  componentDidMount() {
+    this.props.checkAuth();
   }
 
   render() {
@@ -43,3 +50,8 @@ export default class PrivateRoute extends Component {
     }
   }
 }
+
+export default connect(
+  null,
+  { checkAuth }
+)(PrivateRoute);

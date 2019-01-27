@@ -1,16 +1,17 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Router, Route } from "react-router-dom";
 import PrivateRoute from "./hocs/private-route/PrivateRoute";
 import ErrorBoundary from "./components/error-boundary";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import routes from "./config/routes";
+import history from "./helpers/history";
 import "./app.scss";
 
 const App = () => {
   return (
     <ErrorBoundary>
-      <Router>
+      <Router history={history}>
         <div className="app">
           <div className="app__header">
             <Header />

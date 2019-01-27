@@ -1,7 +1,8 @@
 import axios from "axios";
+import endpoints from "./endpoints";
 
 export const createShortener = url => {
-  return axios.post("urls", {
+  return axios.post(endpoints.urls, {
     originalURL: url
   });
 };
