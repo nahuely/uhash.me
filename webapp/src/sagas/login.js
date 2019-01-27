@@ -1,7 +1,9 @@
 import { take, call, put, fork } from "redux-saga/effects";
+import { add } from "react-redux-permissions";
 import * as types from "../actions/actionTypes";
 import * as actions from "../actions/login";
 import * as api from "../api/login";
+import { PREMIUM } from '../actions/permissionTypes';
 
 function* login(action) {
   try {
@@ -16,6 +18,8 @@ function* login(action) {
         token: 123
       })
     );
+
+    yield put(add(PREMIUM));
   } catch (error) {
     yield put(
       actions.loginError({

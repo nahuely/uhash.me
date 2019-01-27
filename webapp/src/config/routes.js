@@ -22,49 +22,60 @@ export default {
     }
   },
   private: {
-    user: {
-      path: "/user",
-      routes: {
-        profile: {
-          path: "/profile",
-          routes: {
-            create: {
-              path: "/update",
-              component: () => <div>/user/profile/update</div>
-            },
-            detail: {
-              path: "/detail",
-              component: () => <div>/user/profile/detail</div>
-            }
-          }
+    profile:{
+      path: '/profile',
+      component: () => <div>/profile</div>,
+    },
+    campaign: {
+      path: '/campaign',
+      created: {
+        id: {
+          path: '/:campaignId',
+          component: () => <div> /campaign/campaignId </div>,
         },
-        campaign: {
-          path: "/campaign",
-          routes: {
-            list: {
-              path: "",
-              component: () => <div>/user/campaign/list</div>
-            },
-            create: {
-              path: "/create",
-              component: () => <div>/user/campaign/create</div>
-            },
-            update: {
-              path: "/:campaignId",
-              component: () => <div>/user/campaign/:campaignId</div>
-            }
-          }
+        list: {
+          path: '/list',
+          component: () => <div> /campaign/list </div>,
         },
-        stats: {
-          path: "/stats",
-          routes: {
-            list: {
-              path: "",
-              component: () => <div>/user/stats</div>
-            }
-          }
-        }
-      }
-    }
+      },
+      new: {
+        path: '/new',
+        component: () => <div>/campaign/new</div>,
+      },
+    },
+    links: {
+      path: '/links',
+      created: {
+        id: {
+          path: '/:linkId',
+          component: () => <div> /links/linkId </div>,
+        },
+        list: {
+          path: '/list',
+          component: () => <div> /links/list </div>,
+        },
+      },
+      new: {
+        path: '/new',
+        component: () => <div>/links/new</div>,
+      },
+    },
+    groups: {
+      path: '/groups',
+      created: {
+        id: {
+          path: '/:groupId',
+          component: () => <div> /groups/groupId </div>,
+        },
+        list: {
+          path: '/list',
+          component: () => <div> /groups/list </div>,
+        },
+      },
+      new: {
+        path: '/new',
+        component: () => <div>/groups/new</div>,
+      },
+    },
   }
 };
