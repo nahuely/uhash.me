@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Input from "../../components/input";
-import Button from "../../components/button";
 import { shortenerRequest } from "../../actions/shortener";
 
 export class Shortener extends Component {
@@ -29,8 +27,8 @@ export class Shortener extends Component {
 
     return (
       <div>
-        <Input value={link} onChange={this.handleInputUpdate} />
-        <Button onClick={this.handleShortening}>make it short</Button>
+        <input value={link} onChange={this.handleInputUpdate} />
+        <button onClick={this.handleShortening}>make it short</button>
       </div>
     );
   }

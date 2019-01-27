@@ -17,7 +17,7 @@ function* login(action) {
     );
 
     localStorage.setItem("token", res.data.token);
-    history.push("/user/profile");
+    history.push("/user/profile/detail");
   } catch (error) {
     yield put(
       actions.loginError({

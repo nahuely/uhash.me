@@ -13,7 +13,7 @@ export const loginRequest = (email, password) => ({
   }
 });
 
-export const loginSuccess = token => ({
+export const loginSuccess = ({ token }) => ({
   type: LOGIN_SUCCESS,
   payload: {
     token
