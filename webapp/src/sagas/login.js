@@ -38,7 +38,6 @@ function* checkAuth(action) {
   try {
     const { token } = yield select(authSelector);
     const res = yield call(api.checkAuth, token);
-    debugger;
 
     // yield put(
     //   actions.loginSuccess({
@@ -66,6 +65,22 @@ function* watchCheckAuthRequest() {
   }
 }
 
-const loginSagas = [fork(watchLoginRequest), fork(watchCheckAuthRequest)];
+function* logout(action) {
+  localStorage.removeItem("token");
+  history.push("/login");
+}
+
+function* watchLogoutRequest() {
+  while (true) {
+    const action = yield take(types.LOGOUT);
+    yield call(logout, action);
+  }
+}
+
+const loginSagas = [
+  fork(watchLoginRequest),
+  fork(watchCheckAuthRequest),
+  fork(watchLogoutRequest)
+];
 
 export default loginSagas;

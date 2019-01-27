@@ -2,7 +2,8 @@ import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
   LOGIN_ERROR,
-  CHECK_AUTH
+  CHECK_AUTH,
+  LOGOUT
 } from "./actionTypes";
 
 export const loginRequest = (email, password) => ({
@@ -29,4 +30,8 @@ export const loginError = error => ({
 
 export const checkAuth = () => ({
   type: CHECK_AUTH
+});
+
+export const logout = () => ({
+  type: LOGOUT
 });
