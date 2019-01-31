@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { shortenerRequest } from "../../actions/shortener";
+import { createShortener } from "../../redux/actions/shortener";
 
 export class Shortener extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ export class Shortener extends Component {
 
   handleShortening = () => {
     const { link } = this.state;
-    this.props.shortenerRequest(link);
+    this.props.createShortener(link);
   };
 
   handleInputUpdate = event => {
@@ -38,5 +38,5 @@ const mapStateToProps = state => ({});
 
 export default connect(
   mapStateToProps,
-  { shortenerRequest }
+  { createShortener }
 )(Shortener);

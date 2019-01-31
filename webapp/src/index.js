@@ -1,14 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import axios from "axios";
-import store from "./store";
+import store from "./redux/store";
 import App from "./App";
 import "./normalize.scss";
-
-axios.defaults.baseURL = "http://localhost:3333/";
-axios.defaults.headers.post["Content-Type"] = "application/json";
-// axios.defaults.headers.common = { Authorization: `bearer ${token}` };
 
 ReactDOM.render(
   <Provider store={store}>

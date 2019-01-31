@@ -1,32 +1,36 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { authSelector } from "../reducers/login";
-import { checkAuth } from "../api/login";
+import { authSelector } from "../redux/selectors/auth";
+import endpoints from "../config/endpoints";
 
 export default function withAuth(WrappedComponent, notAuthRoute) {
   class Auth extends Component {
-    constructor(props) {
-      super(props);
-
-      this.state = {
-        loading: true,
-        isAuthenticated: false
-      };
-    }
+    state = {
+      loading: true,
+      isAuthenticated: false
+    };
 
     async componentDidMount() {
-      const { token } = this.props.auth;
+      const { auth } = this.props;
+      let authSuccess = true;
+
+      //TODO: move this to a helper
       try {
-        await checkAuth(token);
-        this.setState({
-          loading: false,
-          isAuthenticated: true
+        const response = await fetch(endpoints.checkAuth, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${auth}`
+          }
         });
-      } catch (err) {
+        if (response.status !== 204) authSuccess = false;
+      } catch (error) {
+        authSuccess = false;
+      } finally {
         this.setState({
           loading: false,
-          isAuthenticated: false
+          isAuthenticated: authSuccess
         });
       }
     }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { loginRequest } from "../../actions/login";
+import { login } from "../../redux/actions/auth";
 
 export class Login extends Component {
   constructor(props) {
@@ -15,8 +15,7 @@ export class Login extends Component {
   handleLogin = event => {
     event.preventDefault();
     const { username, password } = this.state;
-    const { loginRequest, history } = this.props;
-    loginRequest(username, password, history);
+    this.props.login(username, password);
   };
 
   handleInputUpdate = event => {
@@ -61,5 +60,5 @@ export class Login extends Component {
 
 export default connect(
   null,
-  { loginRequest }
+  { login }
 )(Login);

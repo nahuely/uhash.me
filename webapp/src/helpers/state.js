@@ -3,11 +3,7 @@ export const loadState = () => {
     const token = localStorage.getItem("token");
     if (token) {
       return {
-        auth: {
-          token,
-          error: null,
-          loading: false
-        }
+        auth: token
       };
     }
     return undefined;

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { logout } from "../../actions/login";
-import { authSelector } from "../../reducers/login";
+import { logout } from "../../redux/actions/auth";
+import { authSelector } from "../../redux/selectors/auth";
 
 import "./styles.scss";
 
@@ -12,8 +12,9 @@ class Header extends Component {
   };
 
   render() {
-    const { token } = this.props.auth;
-    if (token) {
+    const { auth } = this.props;
+
+    if (auth) {
       return (
         <div className="menu">
           <div className="menu__logo">
