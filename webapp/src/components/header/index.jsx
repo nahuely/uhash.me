@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 import { logout } from "../../redux/actions/auth";
 import { authSelector } from "../../redux/selectors/auth";
 
@@ -33,6 +33,24 @@ class Header extends Component {
                 </NavLink>
               </li>
               <li className="menu__item">
+                <NavLink
+                  to="/campaign"
+                  activeClassName="menu__link--selected"
+                  className="menu__link"
+                >
+                  Campaign
+                </NavLink>
+              </li>
+              <li className="menu__item">
+                <NavLink
+                  to="/stats"
+                  activeClassName="menu__link--selected"
+                  className="menu__link"
+                >
+                  Stats
+                </NavLink>
+              </li>
+              <li className="menu__item">
                 <button onClick={this.handleLogout}>logout</button>
               </li>
             </ul>
@@ -62,7 +80,6 @@ class Header extends Component {
                   to="/login"
                   activeClassName="menu__link--selected"
                   className="menu__link"
-                  exact
                 >
                   Login
                 </NavLink>
@@ -72,7 +89,6 @@ class Header extends Component {
                   to="/sign-up"
                   activeClassName="menu__link--selected"
                   className="menu__link"
-                  exact
                 >
                   Sign up
                 </NavLink>
@@ -89,7 +105,9 @@ const mapStateToProps = state => ({
   auth: authSelector(state)
 });
 
-export default connect(
-  mapStateToProps,
-  { logout }
-)(Header);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { logout }
+  )(Header)
+);

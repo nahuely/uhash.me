@@ -37,32 +37,32 @@ export default {
               component: () => <div>/user/profile/detail</div>
             }
           }
+        }
+      }
+    },
+    campaign: {
+      path: "/campaign",
+      routes: {
+        list: {
+          path: "",
+          component: () => <div>campaign/list</div>
         },
-        campaign: {
-          path: "/campaign",
-          routes: {
-            list: {
-              path: "",
-              component: () => <div>/user/campaign/list</div>
-            },
-            create: {
-              path: "/create",
-              component: () => <div>/user/campaign/create</div>
-            },
-            update: {
-              path: "/:campaignId",
-              component: () => <div>/user/campaign/:campaignId</div>
-            }
-          }
+        create: {
+          path: "/create",
+          component: () => <div>campaign/create</div>
         },
-        stats: {
-          path: "/stats",
-          routes: {
-            list: {
-              path: "",
-              component: () => <div>/user/stats</div>
-            }
-          }
+        update: {
+          path: "/:campaignId",
+          component: () => <div>campaign/:campaignId</div>
+        }
+      }
+    },
+    stats: {
+      path: "/stats",
+      routes: {
+        list: {
+          path: "",
+          component: () => <div>stats</div>
         }
       }
     }
