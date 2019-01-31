@@ -14,6 +14,7 @@ class Header extends Component {
   render() {
     const { auth } = this.props;
 
+    // TODO: abstract the generation of the menu to a method, using the routes structure to generate it
     if (auth) {
       return (
         <div className="menu">
@@ -24,12 +25,21 @@ class Header extends Component {
             <ul className="menu__list">
               <li className="menu__item">
                 <NavLink
-                  to="/"
+                  to="/links"
                   activeClassName="menu__link--selected"
                   className="menu__link"
                   exact
                 >
-                  Shortener
+                  Links
+                </NavLink>
+              </li>
+              <li className="menu__item">
+                <NavLink
+                  to="/groups"
+                  activeClassName="menu__link--selected"
+                  className="menu__link"
+                >
+                  Groups
                 </NavLink>
               </li>
               <li className="menu__item">
@@ -48,6 +58,15 @@ class Header extends Component {
                   className="menu__link"
                 >
                   Stats
+                </NavLink>
+              </li>
+              <li className="menu__item">
+                <NavLink
+                  to="/profile"
+                  activeClassName="menu__link--selected"
+                  className="menu__link"
+                >
+                  Profile
                 </NavLink>
               </li>
               <li className="menu__item">

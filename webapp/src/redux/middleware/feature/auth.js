@@ -38,7 +38,7 @@ export default () => next => action => {
       localStorage.setItem("token", action.payload.token);
 
       next(setLoader({ state: false, feature: AUTH }));
-      next(changeRoute({ path: "/user/profile/detail", feature: AUTH }));
+      next(changeRoute({ path: "/links", feature: AUTH }));
       break;
 
     case `${AUTH} ${API_ERROR}`:

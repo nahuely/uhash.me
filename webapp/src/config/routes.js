@@ -22,21 +22,24 @@ export default {
     }
   },
   private: {
-    user: {
-      path: "/user",
+    profile: {
+      path: "/profile",
+      component: () => <div>/profile</div>
+    },
+    links: {
+      path: "/links",
       routes: {
-        profile: {
-          path: "/profile",
-          routes: {
-            create: {
-              path: "/update",
-              component: () => <div>/user/profile/update</div>
-            },
-            detail: {
-              path: "/detail",
-              component: () => <div>/user/profile/detail</div>
-            }
-          }
+        list: {
+          path: "",
+          component: () => <div> /links/list </div>
+        },
+        detail: {
+          path: "/:linkId",
+          component: () => <div> /links/linkId </div>
+        },
+        new: {
+          path: "/new",
+          component: () => <div>/links/new</div>
         }
       }
     },
@@ -47,13 +50,30 @@ export default {
           path: "",
           component: () => <div>campaign/list</div>
         },
-        create: {
-          path: "/create",
-          component: () => <div>campaign/create</div>
+        new: {
+          path: "/new",
+          component: () => <div>campaign/new</div>
         },
-        update: {
+        detail: {
           path: "/:campaignId",
           component: () => <div>campaign/:campaignId</div>
+        }
+      }
+    },
+    groups: {
+      path: "/groups",
+      routes: {
+        detail: {
+          path: "/:groupId",
+          component: () => <div> /groups/groupId </div>
+        },
+        list: {
+          path: "",
+          component: () => <div> /groups/list </div>
+        },
+        new: {
+          path: "/new",
+          component: () => <div>/groups/new</div>
         }
       }
     },
