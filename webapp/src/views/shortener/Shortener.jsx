@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { createShortener } from "../../redux/actions/shortener";
+import { createShortener, clearShortener } from "../../redux/actions/shortener";
 
 export class Shortener extends Component {
   constructor(props) {
@@ -8,6 +8,10 @@ export class Shortener extends Component {
     this.state = {
       link: ""
     };
+  }
+
+  componentWillUnmount() {
+    this.props.clearShortener();
   }
 
   handleShortening = () => {
@@ -38,5 +42,5 @@ const mapStateToProps = state => ({});
 
 export default connect(
   mapStateToProps,
-  { createShortener }
+  { createShortener, clearShortener }
 )(Shortener);
