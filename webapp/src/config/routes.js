@@ -24,22 +24,23 @@ export default {
   private: {
     profile: {
       path: "/profile",
-      component: () => <div>/profile</div>
+      component: views.Profile
     },
     links: {
       path: "/links",
       routes: {
         list: {
           path: "",
-          component: () => <div> /links/list </div>
-        },
-        detail: {
-          path: "/:linkId",
-          component: () => <div> /links/linkId </div>
+          component: views.Links.list,
+          exact: true
         },
         new: {
           path: "/new",
-          component: () => <div>/links/new</div>
+          component: views.Links.create
+        },
+        detail: {
+          path: "/:linkId",
+          component: views.Links.detail
         }
       }
     },
@@ -48,15 +49,16 @@ export default {
       routes: {
         list: {
           path: "",
-          component: () => <div>campaign/list</div>
+          component: views.Campaign.list,
+          exact: true
         },
         new: {
           path: "/new",
-          component: () => <div>campaign/new</div>
+          component: views.Campaign.create
         },
         detail: {
           path: "/:campaignId",
-          component: () => <div>campaign/:campaignId</div>
+          component: views.Campaign.detail
         }
       }
     },
@@ -68,6 +70,7 @@ export default {
           component: () => <div> /groups/groupId </div>
         },
         list: {
+          exact: true,
           path: "",
           component: () => <div> /groups/list </div>
         },
@@ -82,7 +85,8 @@ export default {
       routes: {
         list: {
           path: "",
-          component: () => <div>stats</div>
+          component: views.Stats,
+          exact: true
         }
       }
     }
