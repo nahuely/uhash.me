@@ -42,7 +42,7 @@ export default () => next => action => {
       break;
 
     case `${AUTH} ${API_ERROR}`:
-      next(setNotification({ message: action.payload.message, feature: AUTH }));
+      next(setNotification({ message: action.payload, feature: AUTH }));
       next(setLoader({ state: false, feature: AUTH }));
       break;
   }
