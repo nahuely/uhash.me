@@ -1,8 +1,13 @@
 import React, { Component } from "react";
+import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
 import { NavLink, withRouter } from "react-router-dom";
+import { langOptions } from "../../config/langs";
 import { logout } from "../../redux/actions/auth";
+import { changeLanguage } from "../../redux/actions/ui";
 import { authSelector } from "../../redux/selectors/auth";
+import { uiSelector } from "../../redux/selectors/ui";
+import Select from "../../components/select";
 
 import "./styles.scss";
 
@@ -11,8 +16,13 @@ class Header extends Component {
     this.props.logout();
   };
 
+  handleChangeLang = lang => {
+    const selectedLang = lang.target.value;
+    this.props.changeLanguage(selectedLang);
+  };
+
   render() {
-    const { auth } = this.props;
+    const { auth, ui } = this.props;
 
     // TODO: abstract the generation of the menu to a method, using the routes structure to generate it
     if (auth) {
@@ -30,7 +40,7 @@ class Header extends Component {
                   className="menu__link"
                   exact
                 >
-                  Links
+                  <FormattedMessage id="nav.links" defaultMessage="Links" />
                 </NavLink>
               </li>
               <li className="menu__item">
@@ -39,7 +49,7 @@ class Header extends Component {
                   activeClassName="menu__link--selected"
                   className="menu__link"
                 >
-                  Groups
+                  <FormattedMessage id="nav.groups" defaultMessage="Groups" />
                 </NavLink>
               </li>
               <li className="menu__item">
@@ -48,29 +58,33 @@ class Header extends Component {
                   activeClassName="menu__link--selected"
                   className="menu__link"
                 >
-                  Campaign
+                  <FormattedMessage
+                    id="nav.campaign"
+                    defaultMessage="Campaign"
+                  />
                 </NavLink>
               </li>
-              <li className="menu__item">
-                <NavLink
-                  to="/stats"
-                  activeClassName="menu__link--selected"
-                  className="menu__link"
-                >
-                  Stats
-                </NavLink>
-              </li>
+
               <li className="menu__item">
                 <NavLink
                   to="/profile"
                   activeClassName="menu__link--selected"
                   className="menu__link"
                 >
-                  Profile
+                  <FormattedMessage id="nav.profile" defaultMessage="Profile" />
                 </NavLink>
               </li>
               <li className="menu__item">
-                <button onClick={this.handleLogout}>logout</button>
+                <Select
+                  options={langOptions}
+                  value={ui.lang}
+                  onSelectOption={this.handleChangeLang}
+                />
+              </li>
+              <li className="menu__item">
+                <button onClick={this.handleLogout}>
+                  <FormattedMessage id="nav.logout" defaultMessage="logout" />
+                </button>
               </li>
             </ul>
           </div>
@@ -91,7 +105,10 @@ class Header extends Component {
                   className="menu__link"
                   exact
                 >
-                  Shortener
+                  <FormattedMessage
+                    id="nav.shortener"
+                    defaultMessage="Shortener"
+                  />
                 </NavLink>
               </li>
               <li className="menu__item">
@@ -100,7 +117,7 @@ class Header extends Component {
                   activeClassName="menu__link--selected"
                   className="menu__link"
                 >
-                  Login
+                  <FormattedMessage id="nav.login" defaultMessage="LogIn" />
                 </NavLink>
               </li>
               <li className="menu__item">
@@ -109,8 +126,15 @@ class Header extends Component {
                   activeClassName="menu__link--selected"
                   className="menu__link"
                 >
-                  Sign up
+                  <FormattedMessage id="nav.signup" defaultMessage="SignUp" />
                 </NavLink>
+              </li>
+              <li className="menu__item">
+                <Select
+                  options={langOptions}
+                  value={ui.lang}
+                  onSelectOption={this.handleChangeLang}
+                />
               </li>
             </ul>
           </div>
@@ -121,12 +145,13 @@ class Header extends Component {
 }
 
 const mapStateToProps = state => ({
-  auth: authSelector(state)
+  auth: authSelector(state),
+  ui: uiSelector(state)
 });
 
 export default withRouter(
   connect(
     mapStateToProps,
-    { logout }
+    { logout, changeLanguage }
   )(Header)
 );

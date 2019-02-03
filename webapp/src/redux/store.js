@@ -4,6 +4,7 @@ import { loadState } from "../helpers/state";
 
 import shortenerMiddleware from "./middleware/feature/shorteners";
 import authMiddleware from "./middleware/feature/auth";
+import uiMiddleware from "./middleware/feature/ui";
 import coreMiddleware from "./middleware/core/api";
 import routeMiddleware from "./middleware/core/router";
 
@@ -12,6 +13,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const featureMiddlewares = [
   shortenerMiddleware,
   authMiddleware,
+  uiMiddleware,
   routeMiddleware
 ];
 const coreMiddlewares = [coreMiddleware];

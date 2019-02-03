@@ -1,5 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
+import { IntlProvider } from "react-intl";
 import { Router, Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
+import messages from "./locales/messages";
+import { uiSelector } from "./redux/selectors/ui";
 import ErrorBoundary from "./components/error-boundary";
 import Header from "./components/header";
 import Footer from "./components/footer";
@@ -25,43 +29,56 @@ const generateRoutes = (route, path) => {
   );
 };
 
-const App = () => {
-  return (
-    <ErrorBoundary>
-      <Router history={history}>
-        <div className="app">
-          <div className="app__header">
-            <Header />
-          </div>
-          <div className="app__main">
-            <Switch>
-              {Object.entries(routes.public).map(([routeName, route]) => (
-                <Route
-                  exact={route.exact}
-                  key={routeName}
-                  path={route.path}
-                  component={route.component}
-                />
-              ))}
-              {Object.entries(routes.private).map(([_, route]) =>
-                generateRoutes(route, route.path)
-              )}
-              <Route
-                render={() => (
-                  <div>
-                    <p>not found</p>
-                  </div>
-                )}
-              />
-            </Switch>
-          </div>
-          <div className="app__footer">
-            <Footer />
-          </div>
-        </div>
-      </Router>
-    </ErrorBoundary>
-  );
-};
+class App extends Component {
+  render() {
+    const { ui } = this.props;
+    const lang = ui.lang;
+    return (
+      <ErrorBoundary>
+        <IntlProvider locale={lang} messages={messages[lang]}>
+          <Router history={history}>
+            <div className="app">
+              <div className="app__header">
+                <Header />
+              </div>
+              <div className="app__main">
+                <Switch>
+                  {Object.entries(routes.public).map(([routeName, route]) => (
+                    <Route
+                      exact={route.exact}
+                      key={routeName}
+                      path={route.path}
+                      component={route.component}
+                    />
+                  ))}
+                  {Object.entries(routes.private).map(([_, route]) =>
+                    generateRoutes(route, route.path)
+                  )}
+                  <Route
+                    render={() => (
+                      <div>
+                        <p>not found</p>
+                      </div>
+                    )}
+                  />
+                </Switch>
+              </div>
+              <div className="app__footer">
+                <Footer />
+              </div>
+            </div>
+          </Router>
+        </IntlProvider>
+      </ErrorBoundary>
+    );
+  }
+}
 
-export default App;
+const mapStateToProps = state => ({
+  ui: uiSelector(state)
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(App);
