@@ -1,9 +1,11 @@
-import { API_REQUEST, apiError, apiSuccess } from '../../actions/api';
+import { API_REQUEST, apiError, apiSuccess } from "../../actions/api";
+import { authSelector } from "../../selectors/auth";
 
-export default ({ dispatch }) => next => async action => {
+export default ({ getState, dispatch }) => next => async action => {
   next(action);
 
   if (action.type.includes(API_REQUEST)) {
+    const token = authSelector(getState());
     const { url, method, feature } = action.meta;
     const body = JSON.stringify(action.payload);
 
@@ -12,7 +14,8 @@ export default ({ dispatch }) => next => async action => {
         body,
         method,
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`
         }
       });
       const responseJSON = await response.json();
