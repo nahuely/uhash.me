@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { IntlProvider } from "react-intl";
 import { Router, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
-import messages from "./locales/messages";
+import messages_es from "./translations/es.json";
+import messages_en from "./translations/en.json";
 import { uiSelector } from "./redux/selectors/ui";
 import ErrorBoundary from "./components/error-boundary";
 import Header from "./components/header";
@@ -11,6 +12,11 @@ import routes from "./config/routes";
 import history from "./helpers/history";
 import withAuth from "./hocs/withAuth";
 import "./app.scss";
+
+const messages = {
+  en: messages_en,
+  es: messages_es
+};
 
 const generateRoutes = (route, path) => {
   if (!route.routes) {

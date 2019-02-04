@@ -1,0 +1,10 @@
+{
+  "nav.links": "Links",
+  "nav.groups": "Groups",
+  "nav.campaign": "Campaign",
+  "nav.profile": "Profile",
+  "nav.logout": "Logout",
+  "nav.login": "Log In",
+  "nav.shortener": "Shortener",
+  "nav.signup": "Sign Up"
+}
