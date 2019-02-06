@@ -1,0 +1,28 @@
+.Links-Dashboard {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-gap: 2px;
+  grid-template-areas:
+    "type form"
+    "list  detail";
+  grid-template-rows: 40% 60%;
+  grid-template-columns: 30% 70%;
+
+  &__type {
+    grid-area: type;
+    background-color: #8ca0ff;
+  }
+  &__form {
+    grid-area: form;
+    background-color: #8ca0ff;
+  }
+  &__list {
+    grid-area: list;
+    background-color: #8ca0ff;
+  }
+  &__detail {
+    grid-area: detail;
+    background-color: #8ca0ff;
+  }
+}

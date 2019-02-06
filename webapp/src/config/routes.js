@@ -31,16 +31,8 @@ export default {
       routes: {
         list: {
           path: "",
-          component: views.Links.list,
+          component: views.Links.dashboard,
           exact: true
-        },
-        new: {
-          path: "/new",
-          component: views.Links.create
-        },
-        detail: {
-          path: "/:linkId",
-          component: views.Links.detail
         }
       }
     },
