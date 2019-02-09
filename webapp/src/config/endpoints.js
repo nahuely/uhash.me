@@ -6,5 +6,6 @@ export default {
   checkAuth: `${BASE_URL}checkAuth`,
   signup: `${BASE_URL}signup`,
   profile: `${BASE_URL}profile`,
-  campaign: `${BASE_URL}campaign`
+  campaign: `${BASE_URL}campaign`,
+  link: ``
 };
