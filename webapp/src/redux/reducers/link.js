@@ -17,7 +17,7 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case ADD_LINK:
+    case ADD_LINK: {
       const { id, link } = action.payload;
       return {
         links: {
@@ -25,7 +25,7 @@ export default (state = INITIAL_STATE, action) => {
           [id]: { ...link }
         }
       };
-
+    }
     case ADD_ALL_LINKS:
       const links = action.payload;
       return {

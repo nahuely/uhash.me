@@ -1,5 +1,4 @@
 // feature name
-import { LINKS } from './links';
 
 export const LINK = "[Link]";
 
@@ -9,8 +8,8 @@ export const UPDATE_LINK = `${LINK} UPDATE`;
 export const GET_LINKS = `${LINK} GET`;
 export const GET_LINK_BY_ID = `${LINK} GET LINK BY ID`;
 
-export const GET_LINKS_PAGE = `${LINKS} GET PAGE`;
-export const SET_LINKS_PAGE = `${LINKS} SET PAGE`;
+export const GET_LINKS_PAGE = `${LINK} GET PAGE`;
+export const SET_LINKS_PAGE = `${LINK} SET PAGE`;
 
 export const ADD_LINK = `${LINK} ADD`;
 export const ADD_ALL_LINKS = `${LINK} ADD ALL`;

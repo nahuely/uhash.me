@@ -11,11 +11,11 @@ import {
   selectLink
 } from '../../actions/link';
 
-import { API_ERROR, API_SUCCESS, apiRequest } from '../../actions/api';
 import { API_ERROR, API_SUCCESS, apiRequest, apiSuccess } from '../../actions/api';
 import endpoints from '../../../config/endpoints';
 import { setLoader } from '../../actions/ui';
 import { setNotification } from '../../actions/notification';
+import { SHORTENER, setShortener } from '../../actions/shortener';
 
 export default () => next => action => {
   next(action);
