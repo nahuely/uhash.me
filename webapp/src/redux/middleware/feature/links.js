@@ -4,13 +4,14 @@ import {
   UPDATE_LINK,
   GET_LINKS,
   GET_LINK_BY_ID,
+  GET_LINKS_PAGE,
+  setLinksPage,
   addLink,
   modifyLink,
   selectLink
 } from '../../actions/link';
 
 import { API_ERROR, API_SUCCESS, apiRequest } from '../../actions/api';
-import { GET_LINKS_PAGE, setLinksPage } from '../../actions/links';
 import { API_ERROR, API_SUCCESS, apiRequest, apiSuccess } from '../../actions/api';
 import endpoints from '../../../config/endpoints';
 import { setLoader } from '../../actions/ui';

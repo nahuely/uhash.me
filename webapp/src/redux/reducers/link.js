@@ -3,14 +3,16 @@ import {
   ADD_ALL_LINKS,
   MODIFY_LINK,
   SELECT_LINK,
-  CLEAR_LINK_STATE
+  CLEAR_LINK_STATE,
+  SET_LINKS_PAGE,
 } from "../actions/link";
 
 const INITIAL_STATE = {
   selectedLinkId: null,
   links: {},
   filter: null,
-  orderBy: null
+  orderBy: null,
+  listOfLinks: [],
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -45,6 +47,12 @@ export default (state = INITIAL_STATE, action) => {
       };
     case CLEAR_LINK_STATE:
       return INITIAL_STATE;
+    case SET_LINKS_PAGE:
+      return {
+        ...state,
+        listOfLinks: [...state.listOfLinks, ...action.payload.page]
+      };
+
     default:
       return state;
   }
