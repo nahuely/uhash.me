@@ -5,6 +5,7 @@ import { loadState } from "../helpers/state";
 import shortenerMiddleware from "./middleware/feature/shorteners";
 import authMiddleware from "./middleware/feature/auth";
 import uiMiddleware from "./middleware/feature/ui";
+import links from "./middleware/feature/links";
 import coreMiddleware from "./middleware/core/api";
 import routeMiddleware from "./middleware/core/router";
 
@@ -14,7 +15,8 @@ const featureMiddlewares = [
   shortenerMiddleware,
   authMiddleware,
   uiMiddleware,
-  routeMiddleware
+  routeMiddleware,
+  links,
 ];
 const coreMiddlewares = [coreMiddleware];
 

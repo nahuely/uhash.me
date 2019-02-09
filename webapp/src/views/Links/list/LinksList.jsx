@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import "./styles.scss";
 
 class LinksList extends Component {
@@ -7,4 +8,7 @@ class LinksList extends Component {
   }
 }
 
-export default LinksList;
+export default connect(
+  null,
+  {  }
+)(LinksList);
